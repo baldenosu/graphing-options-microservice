@@ -25,25 +25,18 @@ while True:
 
     # Set Axis Scale, and increments
     if set_axis is not None:
-        print("Set the scale for the x axis: ")
-        x_low = float(input('Lower limit: '))
-        x_high = float(input('Upper Limit: '))
-        x_increment = float(input('Increment for x-axis: '))
-        print("Set the scale for the y axis: ")
-        y_low = float(input('Lower limit: '))
-        y_high = float(input('Upper Limit: '))
-        y_increment = float(input('Increment for y-axis: '))
+        x_low = set_axis[0]
+        x_high = set_axis[1]
+        x_increment = set_axis[2]
+        y_low = set_axis[3]
+        y_high = set_axis[4]
+        y_increment = set_axis[5]
         graph.set_xlim(x_low, x_high)
         graph.set_ylim(y_low, y_high)
         graph.set_xticks(np.arange(x_low, x_high, x_increment))
         graph.set_yticks(np.arange(y_low, y_high, y_increment))
     else:
         print("Axis Scale auto set")
-
-    # Set labels for the graph
-    # x_label = input("What should the label for the x axis be? ")
-    # y_label = input("What should the label for the y axis be? ")
-    # graph_title = input("What should the label for the title be? ")
 
     # Apply all the settings to the graph
     graph.set(xlabel=x_label, ylabel=y_label, title=graph_title)
