@@ -15,7 +15,9 @@ socket.bind("tcp://*:5555")
 
 while True:
     #  Wait for next request from client store x_data and y_data
-    x_data, y_data = socket.recv_pyobj()
+    print('waiting for the next request')
+    x_data, y_data, x_label, y_label, graph_title = socket.recv_pyobj()
+    print('request received starting system')
 
     # Set up the graph with the received data
     fig, graph = plt.subplots()
@@ -40,9 +42,9 @@ while True:
         print("Axis Scale auto set")
 
     # Set labels for the graph
-    x_label = input("What should the label for the x axis be? ")
-    y_label = input("What should the label for the y axis be? ")
-    graph_title = input("What should the label for the title be? ")
+    # x_label = input("What should the label for the x axis be? ")
+    # y_label = input("What should the label for the y axis be? ")
+    # graph_title = input("What should the label for the title be? ")
 
     # Apply all the settings to the graph
     graph.set(xlabel=x_label, ylabel=y_label, title=graph_title)
