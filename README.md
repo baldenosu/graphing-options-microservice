@@ -3,7 +3,7 @@ This microservice takes a request with data to be plotted on a graph, the data f
 
 # Sending Requests
 
-Requests can be made using ZeroMQ like so:
+Requests can be made using ZeroMQ, the set up would look like so:
 ```Python
 import zmq
 
