@@ -16,7 +16,7 @@ socket.bind("tcp://*:5555")
 while True:
     #  Wait for next request from client store x_data and y_data
     print('waiting for the next request')
-    x_data, y_data, x_label, y_label, graph_title = socket.recv_pyobj()
+    x_data, y_data, x_label, y_label, graph_title, set_axis, grid_visible = socket.recv_pyobj()
     print('request received starting system')
 
     # Set up the graph with the received data
@@ -24,8 +24,7 @@ while True:
     graph.plot(x_data, y_data)
 
     # Set Axis Scale, and increments
-    set_axis = input("Would you like to set the limits and increments for the x and y axes? Y for yes N for no: ")
-    if set_axis == 'Y':
+    if set_axis is not None:
         print("Set the scale for the x axis: ")
         x_low = float(input('Lower limit: '))
         x_high = float(input('Upper Limit: '))
@@ -50,7 +49,6 @@ while True:
     graph.set(xlabel=x_label, ylabel=y_label, title=graph_title)
 
     # Set whether gridlines are visible or not
-    grid_visible = input("Do you want gridlines visible? Y for yes N for no ")
     if grid_visible == 'Y':
         graph.grid()
     elif grid_visible == 'N':
