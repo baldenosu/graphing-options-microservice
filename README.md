@@ -70,8 +70,12 @@ Requests can then be received like so:
 ```Python
 #  Get the reply containing the graph.
 ax = socket.recv_pyobj()
-time.sleep(2)
-plt.show()
+```
+Then you can use the graph however, since it is a matplot graph you could show it using 
+```Python
+import matplotlib.pyplot as plt
+
+plt.show
 ```
 
 # UML Sequence Diagram
