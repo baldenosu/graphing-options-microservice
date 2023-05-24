@@ -61,7 +61,7 @@ socket.send_pyobj([x_data, y_data, x_label, y_label, graph_title, set_axis, grid
 ```
 
 
-# Receiving Requests
+# Receiving a Response
 
 The request will then return the created graph with the desired settings as a python object
 
